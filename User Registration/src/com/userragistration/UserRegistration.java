@@ -33,9 +33,24 @@ public class UserRegistration {
         }
     }
 
+    public void validKeyName(){
+        Pattern pattern=Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter your mail");
+        String mail=sc.nextLine();
+
+        Matcher matcher=pattern.matcher(mail);
+        if (matcher.matches()){
+            System.out.println("Mail is valid");
+        }else {
+            System.out.println("Mail is not valid");
+        }
+    }
+
     public static void main(String[] args) {
         UserRegistration ur = new UserRegistration();
         ur.validFirstName();
         ur.validLastName();
+        ur.validKeyName();
     }
 }
