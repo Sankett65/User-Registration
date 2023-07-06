@@ -33,24 +33,42 @@ public class UserRegistration {
         }
     }
 
-    public void validKeyName(){
-        Pattern pattern=Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
+    public void validKeyName() {
+        Pattern pattern = Pattern.compile("^[a-z]*.[a-z]+@[a-z]+.[a-z]{2,3}(.[a-z]{2})*$");
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter your mail");
-        String mail=sc.nextLine();
+        String mail = sc.nextLine();
 
-        Matcher matcher=pattern.matcher(mail);
-        if (matcher.matches()){
+        Matcher matcher = pattern.matcher(mail);
+        if (matcher.matches()) {
             System.out.println("Mail is valid");
-        }else {
+        } else {
             System.out.println("Mail is not valid");
         }
     }
+
+        public void validMobileNumber(){
+        Pattern pattern=Pattern.compile("^[9][1]\\s[6-9][0-9]{9}$");
+        Scanner sc = new Scanner(System.in);
+            System.out.println("Enter Mobile Number");
+            String mobileNo=sc.nextLine();
+
+            Matcher matcher = pattern.matcher(mobileNo);
+            if (matcher.matches()){
+                System.out.println("Valid Mobile Number");
+            }else {
+                System.out.println("Mobile number is not Valid");
+            }
+        }
+
 
     public static void main(String[] args) {
         UserRegistration ur = new UserRegistration();
         ur.validFirstName();
         ur.validLastName();
         ur.validKeyName();
+        ur.validMobileNumber();
     }
+
+
 }
